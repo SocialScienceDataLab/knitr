@@ -1,0 +1,62 @@
+\documentclass{article}  					
+
+\input{preamble}
+%\usepackage[backend=bibtex, sorting=none]{biblatex}
+
+
+\title{Using mainly Stata and increasingly R (and knitr)}
+\author{Sebastian Pink for\\Social Science Data Lab}
+\affil{University of Mannheim}
+\date{\today}
+
+\begin{document}
+%\SweaveOpts{concordance=TRUE}
+%\SweaveOpts{concordance=TRUE}
+\maketitle
+\setcounter{page}{0}
+\thispagestyle{empty}	
+
+% Allways copy the image to use into the folder of the text so that
+% the current results can be incorporated
+<<data,cache=F,echo=F>>=
+  load("PATH/2_R/outresults/ResultsFromR.RData")
+options(scipen = 1, digits = 2)
+@
+  
+  
+\begin{abstract}
+Very familiar with Stata, probably like most of you, throughout my project and dissertation work, I came to increasingly incorporate R in my data analysis and even my data edition. In one instance, I had to run specific models for network analysis that I was not able to run in Stata. Then I ran the analysis in R but kept doing the entire preceeding data edition in Stata. In another instance, I ran a simulation model in R, which by nature slightly changed its results every time I ran it. As I wanted to avoid a time-consuming copy-and-paste marathon between R and Word, I wrote the manuscript describing this simulation model using knitr. The reason was that it automatically handed over the values, figures, and tables to a latex processor producing a nice document.
+
+In this talk I simply describe these developments in my workflow to show you how you may gain from incorporating R or knitr in small dosages in your Stata workflow.
+\end{abstract}
+
+\thispagestyle{empty}
+\pagebreak
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Analyzing Stata's {\tt auto.dta} Dataset}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This exemplary application of the Stata through R through knitr (a combination of R and Latex, afaik) shows the process of editing data in the comfort zone of Stata, analyzing the dataset generated with models that are not (yet) implemented in Stata, and then reporting the results in a manuscript using the capabilities of Latex. 
+
+Basically, the analysis deals with \Sexpr{length(colnames(model$model))} variables (\Sexpr{colnames(model$model)}) using \Sexpr{length(model$model[,1])} cars of the 'auto.dta' dataset. The intercept of the bivariate regression is \Sexpr{model$coefficients[1]}\$, which would be a car driving 0 miles per gallon. Figure~\ref{fig:initial-figure} shows that every mile you may drive longer reduces the car's price by \Sexpr{model$coefficients[2]*-1}\$. Put differently, cars that use more fuel are more expensive to buy.
+
+
+\begin{figure}[h!]
+  \captionsetup{singlelinecheck=true, width=0.8\textwidth}
+  \centering
+  \caption{Bivariate correlation}
+  <<figure1,echo=F,out.width='0.95\\textwidth'>>=
+  plot.1
+  @
+\caption*{\footnotesize{\textit{Note}: This graph has been created using ggplot2 in R.}}
+\label{fig:initial-figure}
+\end{figure}
+
+
+
+
+\end{document}
+
+

@@ -1,0 +1,108 @@
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%    1.  Language, Font
+%    2.  Tables & Graphics
+%    3.  Footnotes
+%    4.  Citations 
+%    5.  Layout
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% 1.) Language, Font
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+% Sprache
+\usepackage[ngerman,english]{babel}
+\addto{\captionsenglish}{\renewcommand{\bibname}{References}}
+
+% T1 Schrift Encoding
+\usepackage[T1]{fontenc}
+
+% Kodierung
+\usepackage[latin1]{inputenc} 		% Windows
+\usepackage[right]{eurosym}				% Euro-Symbol verwendbar (durch \euro)
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% 2.) Tables & Graphics
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs} 
+
+\usepackage{multirow}
+\usepackage{pdflscape}
+
+\usepackage{tabularx}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\arraybackslash}X}
+\newcolumntype{L}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage[skip=0pt,labelfont=it,nooneline,small,justification=RaggedRight,singlelinecheck=off]{caption}
+
+% Make figure captions look better
+		\usepackage[format=plain,labelfont=bf]{caption}
+		
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% 3.) Footnotes
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+\usepackage[
+   bottom,      % Footnotes appear always on bottom. This is necessary
+                % especially when floats are used
+   stable,      % Make footnotes stable in section titles
+   ragged,      % Use RaggedRight
+   multiple     % rearrange multiple footnotes intelligent in the text.
+]{footmisc}
+
+		\setlength{\footnotemargin}{-0.8em}
+		\setlength{\dimen\footins}{10\baselineskip} % Beschraenkt den Platz von Fussnoten auf 10 Zeilen
+		\interfootnotelinepenalty=10000 % Verhindert das Fortsetzen von Fussnoten auf der gegenüberligenden Seite
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% 4.) Citations
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+% Zitation
+\usepackage{natbib}		
+\bibpunct[: ]{(}{)}{;}{a}{}{}
+\setcitestyle{round,aysep={},yysep={,}}
+ 
+% multiple authors
+\usepackage[affil-it]{authblk} 
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% 5.) Layout
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\usepackage{lmodern}			% bessere Schriftdarstellung
+\clubpenalty = 10000 			% reduziert Schusterjungen
+\widowpenalty = 10000 			% reduziert Hurenkinder
+
+% Optischer Randausgleich mit pdfTeX
+\usepackage{microtype}
+
+%Schöner aussehen im PDF
+\usepackage{aeguill}
+ 
+\setlength{\dimen\footins}{10\baselineskip} % Beschraenkt den Platz von Fussnoten auf 10 Zeilen
+ 
+\interfootnotelinepenalty=10000 % Verhindert das Fortsetzen von
+                                % Fussnoten auf der gegen�berligenden Seite
+
+% Farbliche Verlinkung von Referenzen
+\usepackage{color}	
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\usepackage[citecolor=darkblue,linkcolor=darkblue,
+urlcolor=black,colorlinks=true,bookmarksopen=true,
+hyperfootnotes=false,pdftitle={title},plainpages=false,pdfpagelabels, %eindeutigere Zuordnung der Seiten
+linktocpage=true,        % Inhaltsverzeichnis verlinkt Seiten
+pdfauthor={Sebastian Pink},
+pdfcreator={LaTeX}]{hyperref} 
+
+
+\usepackage{setspace}
+\onehalfspacing
+
+
+
+
+
